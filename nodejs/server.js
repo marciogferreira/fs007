@@ -1,5 +1,6 @@
 import express from 'express'
-import UsuariosRoutes from './routes/UsuariosRoutes.js';
+import rotasPrivadas from './routes/RotasPrivadas.js';
+import rotasPublicas from './routes/RotasPublicas.js';
 
 const app = express()
 app.use(express.json());
@@ -8,8 +9,8 @@ app.get('/', (req, res) => {
     return res.send('Hello World!');
 });
 
-
-app.use(UsuariosRoutes);
+app.use(rotasPublicas);
+app.use('/api', rotasPrivadas);
 
 app.listen(3000, () => {
     console.log('Server running on port 3000');

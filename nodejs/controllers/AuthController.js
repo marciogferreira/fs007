@@ -1,12 +1,19 @@
-import UsuariosModel from "../models/UsuariosModel.js";
+import UsuariosORM from '../models/UsuariosORM.js';
 import jwt from 'jsonwebtoken'
 import 'dotenv/config'
+import Helpers from "../helpers/Helpers.js";
 
 class AuthController {
     async login(req, res) {
-        const usuarioModel = new UsuariosModel();
+        
         const { email, senha } = req.body;
-        const dados = await usuarioModel.login(email, senha);
+        const hashSenha = Helpers.getHash(senha);
+        const dados = await UsuariosORM.findOne({
+            where: {
+                email: email, 
+                senha: hashSenha
+            }
+        });
 
         if(dados) {
             const user = {

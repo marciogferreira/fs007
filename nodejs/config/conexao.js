@@ -1,6 +1,12 @@
-import { Sequelize } from "sequelize";
+import { Sequelize } from 'sequelize';
 
-export const db = new Sequelize('fdev007', 'root', '', {
+export const db = new Sequelize({
+    dialect: 'postgres',
+    database: 'fdev007',
+    user: 'admin',
+    password: 'postgres',
     host: 'localhost',
-    dialect: 'mysql',
-});
+    port: 5432,
+    ssl: true,
+  });
+

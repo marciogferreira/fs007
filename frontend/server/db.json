@@ -1,0 +1,14 @@
+{
+  "produtos": [
+    {
+      "nome": "Teclado USB GAMER",
+      "valor": "500,00",
+      "id": 4
+    },
+    {
+      "nome": "Monitor 34p",
+      "valor": "3000,0",
+      "id": 5
+    }
+  ]
+}

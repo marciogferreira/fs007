@@ -10,6 +10,7 @@ function AppRoutes() {
                 <Routes>
                     <Route path="/" element={<LoginPage />} />
                     <Route path="/home" element={<HomePage />} />
+                    
                     <Route path="/produtos" element={<Produtos />} />
                     <Route path="/produtos/novo" element={<ProdutosForm />} />
                     <Route path="/produtos/editar/:id" element={<ProdutosForm />} />

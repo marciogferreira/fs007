@@ -1,18 +1,21 @@
-import { createContext, useState } from "react";
+import { createContext, useEffect, useState } from "react";
 
 const AuthContext = createContext({});
 
 export function AuthProvider({ children }) {
 
-    const [isLogged, setIsLogged] = useState(false);
-    function login() {
-        // Criar Token
+    const [isLogged, setIsLogged] = useState(localStorage.getItem('token@saletracker') ? true : false);
+
+    function login(token) {
+        localStorage.setItem('token@saletracker', token)
         setIsLogged(true);
     }
+
     function logout() {
-        // Apagar Token
+        localStorage.removeItem('token@saletracker')
         setIsLogged(false);
     }
+
     return (
         <AuthContext.Provider value={{ isLogged, login, logout }}>
             {children}

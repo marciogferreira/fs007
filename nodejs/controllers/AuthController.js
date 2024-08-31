@@ -14,7 +14,7 @@ class AuthController {
                 senha: hashSenha
             }
         });
-
+   
         if(dados) {
             const user = {
                 id: dados.id,

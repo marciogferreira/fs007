@@ -1,17 +1,33 @@
-import { useContext } from "react";
-import { useNavigate } from "react-router-dom";
+import { useContext, useEffect } from "react";
+import { Navigate, useNavigate } from "react-router-dom";
 import AuthContext from "../../context/AuthContext";
+import Api from "../../config/Api";
+
 function LoginPage() {
 
     const navigate = useNavigate();
-    const { login } = useContext(AuthContext)
+    const { login, isLogged } = useContext(AuthContext)
 
-    function handleSubmit() {
+    async function handleSubmit(e) {
+        e.preventDefault()
+        const response = await Api.post('login', {
+            email: 'admin@admin.com',
+            senha: '123123'
+        })
+        if(response.data.token) {
+            login(response.data.token);// Chamada do AuthContext
+            navigate('/home');
+        } else {
+            alert('Login ou senha inválidos.')
+        }
         // Fazer a requisição para o backend para validar os dados de login
         // e redirecionar para a página Home
-        console.log('Login efetuado com sucesso!');
-        login();// Chamada do AuthContext
-        navigate('/home');
+        // console.log('Login efetuado com sucesso!');
+        
+    }
+
+    if(isLogged) {
+        return <Navigate to="/home" />
     }
 
     return (

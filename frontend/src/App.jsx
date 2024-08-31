@@ -1,21 +1,13 @@
-import { useState } from "react"
-import AuthContext from "./context/AuthContext"
+
+import { AuthProvider } from "./context/AuthContext"
 import AppRoutes from "./routes/AppRoutes"
+// https://dontpad.com/fs007
 function App() {
-  const [isLogged, setIsLogged] = useState(false);
-  function login() {
-    // Criar Token
-    setIsLogged(true);
-  }
-  function logout() {
-    // Apagar Token
-    setIsLogged(false);
-  }
   return (
     <>
-      <AuthContext.Provider value={{ isLogged, login, logout }}>
+      <AuthProvider>
         <AppRoutes />
-      </AuthContext.Provider>
+      </AuthProvider>
     </>
   )
 }

@@ -1,10 +1,17 @@
 import express from 'express';
-import UsuariosRoutes from './UsuariosRoutes.js';
-import CategoriasRoutes from './CategoriasRoutes.js';
-import VendedoresRoutes from './VendedoresRoutes.js';
-
+import usuariosRoutes from './UsuariosRoutes.js';
+import categoriasRoutes from './CategoriasRoutes.js';
+import vendedoresRoutes from './VendedoresRoutes.js';
+import formaPagamentoRoutes from './FormaPagamentoRoutes.js';
+import produtoRoutes from './ProdutoRoutes.js';
+import despesasReceitasRoutes from './DespesasReceitasRoutes.js';
+import fornecedoresRoutes from './FornecedorRoutes.js';
+import clientesRoutes from './ClientesRoutes.js';
 import jwt from 'jsonwebtoken';
 import 'dotenv/config';
+
+
+
 const rotasPrivadas = express.Router();
 // MIDDLEWARE ROTAS PRIVADAS
 rotasPrivadas.use((request, response, next) => {
@@ -29,9 +36,15 @@ rotasPrivadas.use((request, response, next) => {
     next();
 });
 
-rotasPrivadas.use(UsuariosRoutes);
-rotasPrivadas.use(CategoriasRoutes);
-rotasPrivadas.use(VendedoresRoutes);
+rotasPrivadas.use(usuariosRoutes);
+rotasPrivadas.use(categoriasRoutes);
+rotasPrivadas.use(vendedoresRoutes);
+rotasPrivadas.use(formaPagamentoRoutes);
+rotasPrivadas.use(produtoRoutes);
+rotasPrivadas.use(despesasReceitasRoutes);
+rotasPrivadas.use(fornecedoresRoutes); 
+rotasPrivadas.use(clientesRoutes);
+
 
 export default rotasPrivadas;
 

@@ -9,3 +9,4 @@ export const db = new Sequelize({
     username: process.env.USER_DB,
     password: process.env.PASSWORD_DB,
 });
+

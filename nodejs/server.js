@@ -3,13 +3,13 @@ import rotasPrivadas from './routes/RotasPrivadas.js';
 import rotasPublicas from './routes/RotasPublicas.js';
 import { db } from './config/conexao.js';
 import cors from 'cors';
-async function createDB() {
-    await db.sync({
-        alter: true,
-        logging: false
-    });
-}
-createDB();
+// async function createDB() {
+//     await db.sync({
+//         alter: true,
+//         logging: false
+//     });
+// }
+// createDB();
 
 const app = express()
 app.use(express.json());

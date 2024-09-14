@@ -1,33 +1,41 @@
-import { useContext, useEffect } from "react";
+import { useContext, useEffect, useState } from "react";
 import { Navigate, useNavigate } from "react-router-dom";
 import AuthContext from "../../context/AuthContext";
 import Api from "../../config/Api";
-
+import Message from "../../components/Message";
+import LoadingScreen from '../../components/LoadingScreen'
 function LoginPage() {
 
     const navigate = useNavigate();
     const { login, isLogged } = useContext(AuthContext)
+    const [email, setEmail] = useState('');
+    const [senha, setSenha] = useState('');
+    const [loading, setLoading] = useState(false);
 
     async function handleSubmit(e) {
         e.preventDefault()
-        const response = await Api.post('login', {
-            email: 'admin@admin.com',
-            senha: '123123'
-        })
-        if(response.data.token) {
-            login(response.data.token);// Chamada do AuthContext
+        try {
+            setLoading(true)
+            const response = await Api.post('login', {
+                email: email,
+                senha: senha
+            })
+            Message.success(response.data.msg)
+            login(response.data.token);
             navigate('/home');
-        } else {
-            alert('Login ou senha inválidos.')
-        }
-        // Fazer a requisição para o backend para validar os dados de login
-        // e redirecionar para a página Home
-        // console.log('Login efetuado com sucesso!');
-        
+        } catch(e) {
+            console.error(e);
+        } finally {
+            setLoading(false)
+        }     
     }
 
     if(isLogged) {
         return <Navigate to="/home" />
+    }
+
+    if(loading) {
+        return <LoadingScreen />
     }
 
     return (
@@ -38,11 +46,11 @@ function LoginPage() {
                         <form onSubmit={handleSubmit}>
                             <div className="mb-3">
                                 <label htmlFor="">Login</label>
-                                <input type="text" name="login" className="form-control" />
+                                <input type="email" value={email} onChange={e => setEmail(e.target.value)} name="email" className="form-control" />
                             </div>
                             <div className="mb-3">
                                 <label htmlFor="">Senha</label>
-                                <input type="text" name="login" className="form-control" />
+                                <input type="password" value={senha} onChange={e => setSenha(e.target.value)} name="senha" className="form-control" />
                             </div>
                             <div className="mb-3">
                                 <input type="submit" value="Acessar" className="btn btn-primary btn-sm" />

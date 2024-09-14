@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { Link, useParams } from "react-router-dom";
+import LayoutDefault from "../../layouts/LayoutDefault";
 
 function ProdutosForm() {
 
@@ -65,13 +66,22 @@ function ProdutosForm() {
     }, []);
 
     return (
-        <>
-            <Link to="/produtos">Lista de Produtos</Link>
+        <LayoutDefault>
+            <div className="row">
+                <div className="col">
+                    <h3>Formulário de Produtos</h3>
+                </div>
+                <div className="col-2">
+                    <Link to="/produtos" className="btn btn-primary btn-sm">Lista de Produtos</Link>
+                </div>
+            </div>
+            
             <form>
                 <input 
                     type="text" 
                     placeholder="Nome" 
                     name="nome"
+                    className="form-control"
                     value={dados.nome}
                     onChange={handleChange} />
                 <br />
@@ -80,12 +90,13 @@ function ProdutosForm() {
                     type="text" 
                     placeholder="Valor" 
                     name="valor" 
+                    className="form-control"
                     value={dados.valor}
                     onChange={handleChange}/>
                 <br />
-                <button type="button" onClick={saveProdutos}>Salvar</button>
+                <button type="button" className="btn btn-success btn-sm" onClick={saveProdutos}>Salvar</button>
             </form>
-        </>
+        </LayoutDefault>
     )
 }
 

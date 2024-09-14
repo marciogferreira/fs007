@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
+import LayoutDefault from "../../layouts/LayoutDefault";
 
 function Produtos() {
 
@@ -29,13 +30,17 @@ function Produtos() {
     }, []);
 
     return (
-        <>
-            <h1>Produtos</h1>
-            Há {lista.length} registros cadastrado
-            <br />
-            <Link to="/produtos/novo">Novo Produto</Link>
+        <LayoutDefault>
+            <div className="row">
+                <div className="col-10">
+                    <h3>Produtos</h3>        
+                </div>
+                <div className="col-2">
+                    <Link to="/produtos/novo" className="btn btn-primary btn-sm">Novo Produto</Link>        
+                </div>
+            </div>            
 
-            <table>
+            <table className="table table-hover table-striped">
                 <thead>
                     <tr>
                         <th>Cód</th>
@@ -62,8 +67,10 @@ function Produtos() {
                     ))}
                 </tbody>
             </table>
+            Há {lista.length} registros cadastrado
+            <br />
             
-        </>
+        </LayoutDefault>
     )
 }
 

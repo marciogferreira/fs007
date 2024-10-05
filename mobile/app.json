@@ -1,16 +1,16 @@
 {
   "expo": {
-    "name": "app",
-    "slug": "app",
+    "name": "Sales Track",
+    "slug": "sales_track",
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/images/icon.png",
-    "scheme": "myapp",
+    "scheme": "br.com.salestrack",
     "userInterfaceStyle": "automatic",
     "splash": {
       "image": "./assets/images/splash.png",
       "resizeMode": "contain",
-      "backgroundColor": "#ffffff"
+      "backgroundColor": "#034166"
     },
     "ios": {
       "supportsTablet": true
@@ -18,7 +18,7 @@
     "android": {
       "adaptiveIcon": {
         "foregroundImage": "./assets/images/adaptive-icon.png",
-        "backgroundColor": "#ffffff"
+        "backgroundColor": "#034166"
       }
     },
     "web": {
@@ -31,6 +31,21 @@
     ],
     "experiments": {
       "typedRoutes": true
+    },
+    "extra": {
+      "router": {
+        "origin": false
+      },
+      "eas": {
+        "projectId": "1fda5baa-5bb8-4e97-94e8-cada9ef663d4"
+      }
+    },
+    "owner": "haelio",
+    "runtimeVersion": {
+      "policy": "appVersion"
+    },
+    "updates": {
+      "url": "https://u.expo.dev/1fda5baa-5bb8-4e97-94e8-cada9ef663d4"
     }
   }
 }

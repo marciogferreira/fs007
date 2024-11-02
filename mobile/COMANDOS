@@ -1,0 +1,27 @@
+npm install
+npm start
+
+------------------------------------------------------
+Em Momento de Execução
+Tecla w - Executa o Projeto no Navegador
+Tecla a - Executa o Projeto no Android
+Tecla i - Executa o Projeto no Ios
+Tecla C - Exibe os comandos existentes com o QRCode
+
+------------------------------------------------------
+-- EAS - ENTERPRISE APPPLICATION SERVICES -- EXPO.DEV
+npm i -g eas-cli
+
+LOGANDO NO EXPO.DEV
+eas login
+
+CONFIGURANDO NOSSO APP NO EXPO.DEV
+eas init
+
+SUBINDO UMA VERSÃO PARA BRANCH NO EXPO.DEV
+eas update --branch preview --message "Atualizações"    
+
+
+
+
+

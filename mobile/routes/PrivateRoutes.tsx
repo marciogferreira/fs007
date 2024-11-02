@@ -4,6 +4,7 @@ import { createDrawerNavigator, DrawerContentScrollView, DrawerItem, DrawerItemL
 import { Text, View } from "react-native";
 import { useContext } from "react";
 import { AuthContext } from "@/contexts/AuthContext";
+import MapScreen from "@/pages/MapScreen";
 
 const Drawer = createDrawerNavigator();
 
@@ -26,6 +27,7 @@ export default function PrivateRoutes() {
       <NavigationContainer independent={true} >
         <Drawer.Navigator initialRouteName="Home" drawerContent={MenuCustom}>
           <Drawer.Screen name="Home" component={HomeScreen} options={{ headerShown: false }} />
+          <Drawer.Screen name="Mapa" component={MapScreen} options={{ headerShown: true }} />
         </Drawer.Navigator>
       </NavigationContainer>
     </View>

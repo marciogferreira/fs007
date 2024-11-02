@@ -13,13 +13,15 @@
       "backgroundColor": "#034166"
     },
     "ios": {
-      "supportsTablet": true
+      "supportsTablet": true,
+      "bundleIdentifier": "com.haelio.salestracke"
     },
     "android": {
       "adaptiveIcon": {
         "foregroundImage": "./assets/images/adaptive-icon.png",
         "backgroundColor": "#034166"
-      }
+      },
+      "package": "com.haelio.sales_track"
     },
     "web": {
       "bundler": "metro",
@@ -27,7 +29,13 @@
       "favicon": "./assets/images/favicon.png"
     },
     "plugins": [
-      "expo-router"
+      "expo-router",
+      [
+        "expo-location",
+        {
+          "locationAlwaysAndWhenInUsePermission": "Permitir o $(PRODUCT_NAME) usar sua localização?"
+        }
+      ]
     ],
     "experiments": {
       "typedRoutes": true

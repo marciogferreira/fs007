@@ -21,6 +21,21 @@ eas init
 SUBINDO UMA VERSÃO PARA BRANCH NO EXPO.DEV
 eas update --branch preview --message "Atualizações"    
 
+ANTES DE BUILDAR, PODEMOS VER SE O APP ESTA OK.
+npx expo-doctor
+
+npx expo install --check
+
+BUILDANDO MEU APP
+eas build --platform ios
+eas build --platform android
+
+BUILDAR PARA AS DUAS PLATAFORMAS - ANDROID E IOS
+eas build 
+
+
+
+
 
 
 
